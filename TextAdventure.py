@@ -1,3 +1,7 @@
+# Copyright (c) 2025 TheEmbersOfTwilight
+# Licensed under the GNU Affero General Public License v3.0 (AGPL-3.0) for code.
+# Creative assets and prose in this repository are licensed under CC BY-NC-SA 4.0 unless otherwise noted.
+# See LICENSE-AGPLv3 and LICENSE-CC-BY-NC-SA-4.0 in the repository root for full license texts.
 import time
 import sys
 question = "What do you say?"
