@@ -59,4 +59,4 @@ Changelog / Roadmap
 - v0.1.0 — Prototype: single-file Python demo with simple item flags and branching.
 - Planned:
   - Add save/load
-  - Add accessibility flags (skip typing effects
+  - Add accessibility flags (skip typing effects)
