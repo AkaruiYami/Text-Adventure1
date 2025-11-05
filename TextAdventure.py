@@ -12,6 +12,11 @@ Wand=False
 door1=False
 potion1=False
 Apprentice=False
+type_text("When you are given a choice, type the number associated with the option you would like to choose")
+print()
+type_text("Have a good experience")
+print()
+time.sleep(5)
 type_text("You awaken in a dark, damp room on a grimy bed")
 time.sleep(1)
 print()
@@ -203,4 +208,15 @@ while Apprentice == False:
 type_text('"Well then, I will help you for a short while. But do not touch my potions or spellbooks."')
 print()
 time.sleep(1)
-type_text("The man walks you to ")
+type_text("The man walks you to a small room down a hall that appears as he walks over to the wall where he came from")
+print()
+time.sleep(1)
+type_text("Inside the room is a small bed with what appears to be a down mattress")
+print()
+time.sleep(1)
+type_text("There is also a side table next to the bed and a dresser on the opposite wall")
+print()
+time.sleep(1)
+type_text('"Get some rest, and come talk to me in the morning')
+print()
+time.sleep(1)
