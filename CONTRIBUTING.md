@@ -60,7 +60,7 @@ Please follow a professional and respectful tone in all conversations. This proj
 
 ## Local Development Tips
 
-- Running the game locally: `python TextAdventure.py` from the repo root.
+- Running the game locally: `python version-name.py` from the repo root.
 - If you prefer a faster run for testing, temporarily set delays inside `type_text` to a smaller value or add a flag to skip delays.
 
 ## Requesting Commercial Permission
