@@ -222,7 +222,7 @@ while Apprentice == False:
         type_text("Game Over")
         print()
         sys.exit()
-type_text('"Well then, I will help you for a short while. But you will have to assist for a time."')
+type_text('"Well then, I will help you for a short while. But you will have to assist me for a time."')
 print()
 time.sleep(1)
 type_text("The man walks you to a small room down a hall that appears as he walks over to the wall where he came from")
