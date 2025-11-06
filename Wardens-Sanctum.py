@@ -128,7 +128,7 @@ while door1 == False:
         print()
         continue
     elif choice4 == "1":
-        type_text("You inspect the silhouette and see that there is a small hole within it that would fit one end of the stick")
+        type_text("You inspect the silhouette and see that there is a small hole within it that would fit the stick")
         print()
         time.sleep(1)
         type_text("You stick one end of the stick into the hole, it does not work")
