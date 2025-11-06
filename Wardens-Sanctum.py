@@ -322,7 +322,7 @@ if choice7 == "1":
         type_text("You use the razor to carefully cut the flowers from their stems, being careful not to damage them")
         print()
         time.sleep(1)
-        type_text("You gather a small bouquet of the flowers and head back towards the stone building")
+        type_text("You gather a small bouquet of the flowers")
         print()
         time.sleep(1)
         flowers_collected=True
