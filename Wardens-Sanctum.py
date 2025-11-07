@@ -522,7 +522,7 @@ if flowers_collected == True and water_collected == True:
     type_text("You take the potion and feel a surge of energy coursing through your body")
     print()
     time.sleep(1)
-   if scars == True:
+    if scars == True:
         type_text("The scratches on your arms and legs begin to heal rapidly, leaving behind faint scars as a reminder of your encounter in the forest")
         print()
         time.sleep(1)
