@@ -3,10 +3,12 @@
 
 ## Reporting a Vulnerability
 
-Thank you for taking the time to report a security issue in Warden's Sanctum. We prefer to receive vulnerability reports privately so we can address them before public disclosure.
+Thank you for taking the time to report a security issue in Warden's Sanctum. We prefer to receive vulnerability reports privately
+so we can address them before public disclosure.
 
 Preferred reporting methods:
-- Open a private issue in this repository titled "Security vulnerability report" (if your GitHub account supports private repository issues) or use the repository's private issue feature.
+- Open a private issue in this repository titled "Security vulnerability report" (if your GitHub account supports private repository
+  issues) or use the repository's private issue feature.
 - Contact the repository owner/maintainer via their GitHub profile: https://github.com/TheEmbersOfTwilight
 
 When reporting, please include as much of the following information as possible:
@@ -18,11 +20,13 @@ When reporting, please include as much of the following information as possible:
 - A proof-of-concept or demonstration (if safe to share).
 - Whether the issue is exploitable remotely, and what the impact would be.
 
-If you prefer encrypted communication, contact the maintainer via their GitHub profile to request a secure channel; we will provide an encryption key or alternate contact method when available.
+If you prefer encrypted communication, contact the maintainer via their GitHub profile to request a secure channel; we will
+provide an encryption key or alternate contact method when available.
 
 ## Supported Versions
 
-- This project is a prototype (single-file Python demo). We accept reports against the current `main` branch. If you report an issue that affects a past release, please indicate the commit SHA or tag.
+- This project is a prototype (single-file Python demo). We accept reports against the current `main` branch. If you report
+   an issue that affects a past release, please indicate the commit SHA or tag.
 
 ## Response and Remediation
 
@@ -35,7 +39,8 @@ If you prefer encrypted communication, contact the maintainer via their GitHub p
 
 We use this guideline to prioritize fixes:
 
-- Critical: Remote code execution, data exfiltration, or any bug that allows an attacker to fully compromise confidentiality, integrity, or availability.
+- Critical: Remote code execution, data exfiltration, or any bug that allows an attacker to fully compromise confidentiality,
+   integrity, or availability.
 - High: Privilege escalation, significant information disclosure, persistent denial of service, or other impactful vulnerabilities.
 - Medium: Issues that require local access or user interaction and have limited impact.
 - Low: Minor bugs, information leaks with low impact, or issues requiring special conditions to exploit.
@@ -43,11 +48,13 @@ We use this guideline to prioritize fixes:
 ## Coordinated Disclosure
 
 - We request that reporters avoid public disclosure until a fix has been made and a security advisory or patch is published.
-- We will work with you to coordinate disclosure. If you choose to disclose publicly before a fix, please notify us so we can respond appropriately.
+- We will work with you to coordinate disclosure. If you choose to disclose publicly before a fix, please notify us so we can
+  respond appropriately.
 
 ## No Bounty Policy
 
-- Currently this project does not have a formal vulnerability reward program (bug bounty). If you are interested in receiving a formal acknowledgment or other compensation, please contact the maintainer to discuss options.
+- Currently this project does not have a formal vulnerability reward program (bug bounty). If you are interested in receiving
+  a formal acknowledgment or other compensation, please contact the maintainer to discuss options.
 
 ## Reporting Template (copy/paste)
 
@@ -79,5 +86,7 @@ Contact information (how we can reach you):
 
 ## Thank You
 
-We appreciate responsible disclosure and will do our best to address reports quickly. If you need a different contact method or additional confidentiality protections, please contact the maintainer via their GitHub profile: https://github.com/TheEmbersOfTwilight
+We appreciate responsible disclosure and will do our best to address reports quickly. If you need a different
+contact method or additional confidentiality protections, please contact the maintainer via their GitHub profile:
+https://github.com/TheEmbersOfTwilight
 ```
