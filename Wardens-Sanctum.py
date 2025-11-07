@@ -15,7 +15,6 @@ Razor=0
 Wand=False
 door1=False
 potion1=False
-Apprentice=False
 timewasted=False
 scars=False
 flowers_collected=False
@@ -147,6 +146,8 @@ while Wand == False:
         print()
         time.sleep(1)
         Wand=True
+    else:
+        continue
 type_text("You now see a silhouette of a door on the wall next to the bed")
 time.sleep(1)
 while door1 == False:
@@ -230,20 +231,20 @@ time.sleep(1)
 type_text('"What are you doing in my sanctum?"')
 print()
 time.sleep(1)
-type_text(question)
-time.sleep(1)
-print()
-print("1. I'm lost and found this place")
-time.sleep(1)
-print("2. I'm your new apprentice")
-choice6=input()
-while Apprentice == False:
+while True:
+    type_text(question)
+    time.sleep(1)
+    print()
+    print("1. I'm lost and found this place")
+    time.sleep(1)
+    print("2. I'm your new apprentice")
+    choice6=input()
     if choice6 == "1":
         type_text('"How did you find this place, then? Did you come here from the prison?')
         print()
         time.sleep(1)
-        Apprentice=True
-    else:
+        break
+    elif choice6 == "2":
         type_text('"I do not remember hiring a new apprentice"')
         print()
         type_text('"You are an imposter!"')
@@ -254,6 +255,8 @@ while Apprentice == False:
         type_text("Game Over")
         print()
         sys.exit()
+    else:
+        continue
 type_text('"Well then, I will help you for a short while. But you will have to assist me for a time."')
 print()
 time.sleep(1)
@@ -328,8 +331,7 @@ while True:
     print("1. What kind of potion is it?")
     print("2. What ingredients do you need?")
     print("3. Why should I help you?")
-    choice_quest = input()
-    
+    choice_quest = input() 
     if choice_quest == "1":
         type_text('"That is not your concern for now. Focus on the task at hand."')
         print()
@@ -338,6 +340,8 @@ while True:
     elif choice_quest == "3":
         type_text('"Remember, I am helping you. This is a fair exchange."')
         print()    
+    else:
+        continue
 type_text('"First, go to the forest outside and gather some moonshade flowers."')
 print()
 time.sleep(1)
@@ -362,12 +366,13 @@ while True:
     print("1. Go through the door")
     print("2. Ask more questions")
     choice_leave = input()
-    
     if choice_leave == "1":
         break
     elif choice_leave == "2":
         type_text('"There is no time for more questions. Go now."')
         print()
+    else:
+        continue
 type_text("You walk through the door and find yourself next to a tree in a dense forest, with a dilapidated stone building off in the distance")
 print()
 time.sleep(1)
@@ -398,40 +403,46 @@ time.sleep(1)
 type_text("You get the feeling that you cannot pick them without using some sort of sharp object or ripping them out by the roots")
 print()
 time.sleep(1)
-type_text(choice)
-print()
-time.sleep(1)
-print("1. Pick the flowers")
-time.sleep(1)
-print("2. Leave empty handed")
-time.sleep(1)
-choice7=input()
-if choice7 == "1":
-    if Razor == 1:
-        type_text("You remember the razor you picked up earlier")
-        print()
-        time.sleep(1)
-        type_text("You use the razor to carefully cut the flowers from their stems, being careful not to damage them")
-        print()
-        time.sleep(1)
-        type_text("You gather a small bouquet of the flowers")
-        print()
-        time.sleep(1)
-        flowers_collected=True
-    else:
-        type_text("You try to pick the flowers by hand, but their stems are too thick and sturdy to break")
-        print()
-        time.sleep(1)
-        type_text("After several frustrating minutes, you are finally able to rip a few flowers free")
-        print()
-        time.sleep(1)
-        timewasted=True
-        flowers_collected=True
-elif choice7 == "2":
-    type_text("You decide to leave the flowers alone")
+while True:
+    type_text(choice)
     print()
     time.sleep(1)
-    flowers_collected=False
+    print("1. Pick the flowers")
+    time.sleep(1)
+    print("2. Leave empty handed")
+    time.sleep(1)
+    choice7=input()
+    if choice7 == "1":
+        if Razor == 1:
+            type_text("You remember the razor you picked up earlier")
+            print()
+            time.sleep(1)
+            type_text("You use the razor to carefully cut the flowers from their stems, being careful not to damage them")
+            print()
+            time.sleep(1)
+            type_text("You gather a small bouquet of the flowers")
+            print()
+            time.sleep(1)
+            flowers_collected=True
+            break
+        else:
+            type_text("You try to pick the flowers by hand, but their stems are too thick and sturdy to break")
+            print()
+            time.sleep(1)
+            type_text("After several frustrating minutes, you are finally able to rip a few flowers free")
+            print()
+            time.sleep(1)
+            timewasted=True
+            flowers_collected=True
+            break
+    elif choice7 == "2":
+        type_text("You decide to leave the flowers alone")
+        print()
+        time.sleep(1)
+        flowers_collected=False
+        break
+    else:
+        continue
 type_text("You head towards the stone building")
 print()
 time.sleep(1)
@@ -447,84 +458,89 @@ time.sleep(1)
 type_text("You wade into the river, thinking about how this must be the river the robed figure mentioned")
 print()
 time.sleep(1)
-type_text(choice)
-print()
-time.sleep(1)
-print("1. Collect water from the river")
-time.sleep(1)
-print("2. Leave the river")
-time.sleep(1)
-choice9=input()
-if choice9 == "1":
-    type_text("You wade towards the deepest part of the river you can find and scoop up some water into the vial")
+while True:
+    type_text(choice)
     print()
     time.sleep(1)
-    water_collected=True
-    if timewasted == True:
-        type_text("As you finish collecting the water, you hear a loud roar coming from the forest")
+    print("1. Collect water from the river")
+    time.sleep(1)
+    print("2. Leave the river")
+    time.sleep(1)
+    choice9=input()
+    if choice9 == "1":
+        type_text("You wade towards the deepest part of the river you can find and scoop up some water into the vial")
         print()
         time.sleep(1)
-        type_text(choice)
+        water_collected=True
+        if timewasted == True:
+            type_text("As you finish collecting the water, you hear a loud roar coming from the forest")
+            print()
+            time.sleep(1)
+            type_text(choice)
+            print()
+            time.sleep(1)
+            print("1. Run away")
+            time.sleep(1)
+            print("2. Stay and investigate")
+            choice8=input()
+            if choice8 == "1":
+                type_text("You see a large creature slowly emerge from the trees as you run off towards the tree you entered from")
+                print()
+                time.sleep(1)
+                type_text("The creature is massive, with sharp claws and teeth, and it looks very angry")
+                print()
+                time.sleep(1)
+                type_text("As you reach the tree, the creature lets out a deafening roar and charges towards you")
+                print()
+                time.sleep(1)
+                type_text("The creature tackles you to the ground, and you feel its sharp claws digging into your flesh")
+                print()
+                time.sleep(1)
+                type_text("You are barely able to wiggle free and jump through a hole that appears in the tree trunk as you do so")
+                print()
+                time.sleep(1)
+                scars=True
+                type_text("As you emerge from the hole, you feel your body aching and you notice several deep scratches on your arms and legs")
+                print()
+                time.sleep(1)
+                type_text("You see that you are back in the robed figure's sanctum")
+                print()
+                time.sleep(1)
+                break
+            elif choice8 == "2":
+                type_text("You decide to stay and investigate the noise")
+                print()
+                time.sleep(1)
+                type_text("As you move deeper into the forest, you see a large creature emerge from the trees")
+                print()
+                time.sleep(1)
+                type_text("The creature is massive, with sharp claws and teeth, and it looks very angry")
+                print()
+                time.sleep(1)
+                type_text("As it sees you, it suddenly cries out with a deep, guttural sound and charges towards you")
+                print()
+                time.sleep(1)
+                type_text("You try to run, but the creature is too fast and tackles you to the ground")
+                print()
+                time.sleep(1)
+                type_text("You try your best to fight back, but the creature's strength is overwhelming")
+                print()
+                time.sleep(1)
+                type_text("You begin to feel lightheaded and your vision goes dark")
+                print()
+                time.sleep(1)
+                type_text("Game Over")
+                sys.exit()
+    elif choice9 == "2":
+        type_text("You walk back towards the tree and see a hole appearing in the trunk as you approach")
         print()
         time.sleep(1)
-        print("1. Run away")
+        type_text("You step through the hole and see yourself back in the robed figure's sanctum")
+        print()
         time.sleep(1)
-        print("2. Stay and investigate")
-        choice8=input()
-        if choice8 == "1":
-            type_text("You see a large creature slowly emerge from the trees as you run off towards the tree you entered from")
-            print()
-            time.sleep(1)
-            type_text("The creature is massive, with sharp claws and teeth, and it looks very angry")
-            print()
-            time.sleep(1)
-            type_text("As you reach the tree, the creature lets out a deafening roar and charges towards you")
-            print()
-            time.sleep(1)
-            type_text("The creature tackles you to the ground, and you feel its sharp claws digging into your flesh")
-            print()
-            time.sleep(1)
-            type_text("You are barely able to wiggle free and jump through a hole that appears in the tree trunk as you do so")
-            print()
-            time.sleep(1)
-            scars=True
-            type_text("As you emerge from the hole, you feel your body aching and you notice several deep scratches on your arms and legs")
-            print()
-            time.sleep(1)
-            type_text("You see that you are back in the robed figure's sanctum")
-            print()
-            time.sleep(1)
-        elif choice8 == "2":
-            type_text("You decide to stay and investigate the noise")
-            print()
-            time.sleep(1)
-            type_text("As you move deeper into the forest, you see a large creature emerge from the trees")
-            print()
-            time.sleep(1)
-            type_text("The creature is massive, with sharp claws and teeth, and it looks very angry")
-            print()
-            time.sleep(1)
-            type_text("As it sees you, it suddenly cries out with a deep, guttural sound and charges towards you")
-            print()
-            time.sleep(1)
-            type_text("You try to run, but the creature is too fast and tackles you to the ground")
-            print()
-            time.sleep(1)
-            type_text("You try your best to fight back, but the creature's strength is overwhelming")
-            print()
-            time.sleep(1)
-            type_text("You begin to feel lightheaded and your vision goes dark")
-            print()
-            time.sleep(1)
-            type_text("Game Over")
-            sys.exit()
-else:
-    type_text("You walk back towards the tree and see a hole appearing in the trunk as you approach")
-    print()
-    time.sleep(1)
-    type_text("You step through the hole and see yourself back in the robed figure's sanctum")
-    print()
-    time.sleep(1)
+        break
+    else:
+        continue
 if flowers_collected == True and water_collected == True:
     type_text("You walk back into the sanctum and approach the robed figure")
     print()
