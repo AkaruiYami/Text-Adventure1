@@ -105,6 +105,7 @@ while Wand == False:
                     type_text("You pick up the razor and walk back to the middle of the cell")
                     print()
                     infinite_razor_counter=infinite_razor_counter+1
+                    Razor=Razor+1
                     continue
                 else:
                     type_text("You leave it and walk back to the middle of the cell")
