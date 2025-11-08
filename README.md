@@ -41,6 +41,7 @@ Project structure
 - CONTRIBUTING.md - outline for contributing to the project
 - CODE_OF_CONDUCT.md - file explaining rules that apply to all contributors and community members
 - SECURITY.md - document outlining the pictures for reporting and fixing security issues
+- index.html - file containing the website for the game
 
 
 Contributing
