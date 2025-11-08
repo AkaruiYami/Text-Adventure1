@@ -55,9 +55,9 @@ Support / Contact
 Author / maintainer: TheEmbersOfTwilight  
 Repo: https://github.com/TheEmbersOfTwilight/Text-Adventure1
 
-Acknowledgements
+Other Links
 ----------------
-- This project started as a small Python prototype with an emphasis on atmosphere and branching choices.
+Official Website: https://theembersoftwilight.github.io/Text-Adventure1/
 
 Roadmap
 -------------------
