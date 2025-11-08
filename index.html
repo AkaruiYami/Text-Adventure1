@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warden's Sanctum - A Text Adventure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #c7a64a;
+            text-shadow: 0 0 20px rgba(199, 166, 74, 0.5), 0 0 40px rgba(199, 166, 74, 0.3);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            color: #9b9b9b;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .hero {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #c7a64a;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #c7a64a 0%, #8b7332 100%);
+            color: #1a1a2e;
+            padding: 15px 40px;
+            font-size: 1.3em;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(199, 166, 74, 0.4);
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(199, 166, 74, 0.6);
+        }
+
+        .section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(199, 166, 74, 0.3);
+        }
+
+        h2 {
+            color: #c7a64a;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #c7a64a;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #c7a64a;
+            font-size: 1.5em;
+            margin: 20px 0 10px 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature {
+            background: rgba(199, 166, 74, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(199, 166, 74, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(199, 166, 74, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            color: #c7a64a;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .button-group {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .github-link {
+            display: inline-block;
+            color: #c7a64a;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #c7a64a;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin: 5px 10px;
+        }
+
+        .github-link:hover {
+            background: rgba(199, 166, 74, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #9b9b9b;
+            border-top: 1px solid rgba(199, 166, 74, 0.3);
+            margin-top: 60px;
+        }
+
+        code {
+            background: rgba(199, 166, 74, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .screenshot {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #c7a64a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+        }
+
+        .play-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .method {
+            background: rgba(199, 166, 74, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(199, 166, 74, 0.3);
+        }
+
+        .method h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .highlight {
+            background: rgba(199, 166, 74, 0.2);
+            padding: 15px;
+            border-left: 4px solid #c7a64a;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero {
+                padding: 20px;
+            }
+            
+            .download-button {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Warden's Sanctum</h1>
+            <p class="tagline">A tale of escape, discovery, and mysterious powers</p>
+        </header>
+
+        <div class="hero">
+            <p>You awaken in a dark, damp cell with no memory of how you arrived. A mysterious wand, a powerful figure, and dangerous choices await you in this atmospheric text adventure.</p>
+            <div class="button-group">
+                <a href="https://github.com/TheEmbersOfTwilight/Text-Adventure1/releases" class="download-button" target="_blank">Download Game</a>
+                <a href="https://github.com/TheEmbersOfTwilight/Text-Adventure1" class="download-button" target="_blank">View Source</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>About the Game</h2>
+            <p>Warden's Sanctum is a compact Python text adventure where atmosphere meets choice. Your decisions shape the story as you navigate through mysterious chambers, gather arcane ingredients, and uncover the secrets of a powerful sorcerer's domain.</p>
+            
+            <div class="screenshot">
+                <p>> You awaken in a dark, damp room on a grimy bed</p>
+                <p>> You see a shelf on the opposite side of the room...</p>
+                <p>> What do you do?</p>
+                <p>1. Look through the bars</p>
+                <p>2. Look at the shelf</p>
+                <p>3. Inspect the bed</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>🗝️ Branching Narrative</h3>
+                    <p>Multiple paths and endings based on your choices throughout the adventure.</p>
+                </div>
+                <div class="feature">
+                    <h3>✨ Atmospheric Experience</h3>
+                    <p>Immersive typed-text effects create tension and atmosphere in every scene.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎒 Item System</h3>
+                    <p>Discover and use items that affect your journey and unlock new possibilities.</p>
+                </div>
+                <div class="feature">
+                    <h3>🌙 Mystery & Magic</h3>
+                    <p>Explore a world of sorcery, potions, and powerful artifacts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>How to Play</h2>
+            
+            <div class="play-methods">
+                <div class="method">
+                    <h3>🖥️ Local Installation</h3>
+                    <p><strong>Requirements:</strong> Python 3.8+</p>
+                    <ol>
+                        <li>Download the latest release from GitHub</li>
+                        <li>Extract the files</li>
+                        <li>Open terminal/command prompt</li>
+                        <li>Navigate to the game directory</li>
+                        <li>Run: <code>python Wardens-Sanctum.py</code></li>
+                    </ol>
+                </div>
+                
+                <div class="method">
+                    <h3>🌐 Online IDE</h3>
+                    <p>No installation required!</p>
+                    <ul>
+                        <li>Visit <a href="https://trinket.io/" target="_blank" style="color: #c7a64a;">trinket.io</a> or <a href="https://www.online-python.com/" target="_blank" style="color: #c7a64a;">online-python.com</a></li>
+                        <li>Copy the game code</li>
+                        <li>Paste into the editor</li>
+                        <li>Click "Run"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <p><strong>💡 Controls:</strong> When presented with choices, type the number of your chosen option and press Enter.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Game Features</h2>
+            
+            <h3>Exploration & Discovery</h3>
+            <p>Wake up in a mysterious prison cell and begin your journey through dark corridors and magical sanctums. Every room holds secrets waiting to be uncovered.</p>
+            
+            <h3>Choice-Driven Gameplay</h3>
+            <p>Your decisions matter. From picking up a simple razor to choosing how to respond to the enigmatic Warden, each choice can lead to different outcomes.</p>
+            
+            <h3>Inventory Management</h3>
+            <p>Collect and use items strategically. Some items unlock new paths, while others may save your life in dangerous encounters.</p>
+            
+            <h3>Multiple Endings</h3>
+            <p>Different choices lead to different fates. Will you earn the Warden's trust, or meet an untimely end?</p>
+        </div>
+
+        <div class="section">
+            <h2>Project Status</h2>
+            <p><strong>Current Version:</strong> v0.1.0 (Prototype)</p>
+            <p><strong>Status:</strong> Early demo with core gameplay loop complete</p>
+            
+            <h3>Planned Features</h3>
+            <ul>
+                <li>Save/Load system</li>
+                <li>Accessibility options (skip typing effects)</li>
+                <li>Additional chapters and storylines</li>
+                <li>More complex item interactions</li>
+                <li>Extended endings</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Open Source & Contributing</h2>
+            <p>Warden's Sanctum is open source and welcomes contributions from the community!</p>
+            
+            <div class="highlight">
+                <p><strong>📜 Licensing:</strong></p>
+                <ul>
+                    <li><strong>Code:</strong> AGPL-3.0</li>
+                    <li><strong>Creative Assets & Prose:</strong> CC BY-NC-SA 4.0</li>
+                </ul>
+            </div>
+            
+            <h3>Ways to Contribute</h3>
+            <ul>
+                <li><strong>Bug Fixes:</strong> Found a bug? Submit a pull request!</li>
+                <li><strong>New Features:</strong> Have an idea? Open an issue to discuss it first</li>
+                <li><strong>Story Content:</strong> Help expand the narrative</li>
+                <li><strong>Documentation:</strong> Improve guides and documentation</li>
+            </ul>
+            
+            <div class="button-group">
+                <a href="https://github.com/TheEmbersOfTwilight/Text-Adventure1" class="github-link" target="_blank">View on GitHub</a>
+                <a href="https://github.com/TheEmbersOfTwilight/Text-Adventure1/blob/main/CONTRIBUTING.md" class="github-link" target="_blank">Contributing Guide</a>
+                <a href="https://github.com/TheEmbersOfTwilight/Text-Adventure1/issues" class="github-link" target="_blank">Report Issues</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Community & Support</h2>
+            <p><strong>Author:</strong> TheEmbersOfTwilight</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/TheEmbersOfTwilight/Text-Adventure1" target="_blank" style="color: #c7a64a;">github.com/TheEmbersOfTwilight/Text-Adventure1</a></p>
+            
+            <p style="margin-top: 20px;">Have questions? Found a bug? Want to contribute? Check out the GitHub repository or open an issue!</p>
+        </div>
+
+        <footer>
+            <p>Created by TheEmbersOfTwilight</p>
+            <p>Code: AGPL-3.0 | Assets & Prose: CC BY-NC-SA 4.0</p>
+            <p style="margin-top: 15px;">© 2025 - A mysterious adventure awaits...</p>
+        </footer>
+    </div>
+</body>
+</html>
