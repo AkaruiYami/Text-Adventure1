@@ -22,9 +22,17 @@ Requirements
 
 How to play
 -----------
-1. Download the latest release of the game
-2. Run the .py file:  
-     -You can either run it locally through terminal (Python 3.8+ Required) using the prompt `Python file-name.py`, or use an online IDE such as https://trinket.io/ or https://www.online-python.com/
+### Locally (Windows 10+ Required)
+1. Download the latest Windows release
+2. Extract the files
+3. Run the Wardens-Sanctum-version-name.exe file
+
+### Online IDE (No Installation required)
+- Visit trinket.io or online-python.com
+- Copy the game code
+- Paste into the editor
+- Click "Run"
+
 
 Controls
 --------
