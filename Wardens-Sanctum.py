@@ -532,6 +532,14 @@ while True:
                 time.sleep(1)
                 type_text("Game Over")
                 sys.exit()
+        else: 
+            type_text("You walk back towards the tree and see a hole appearing in the trunk as you approach")
+            print()
+            time.sleep(1)
+            type_text("You step through the hole and see yourself back in the robed figure's sanctum")
+            print()
+            time.sleep(1)
+            break
     elif choice9 == "2":
         type_text("You walk back towards the tree and see a hole appearing in the trunk as you approach")
         print()
