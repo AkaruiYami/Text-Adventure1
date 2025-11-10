@@ -21,7 +21,8 @@ flowers_collected=False
 water_collected=False
 infinite_razor_counter=0
 powerupgraded=0
-type_text("Welcome to 'Warden's Sanctum', a text-based adventure game")
+Callout_counter=0
+type_text("Welcome to 'Warden's Sanctum', a text adventure game")
 print()
 type_text("When you are given a choice, type the number associated with the option you would like to choose")
 print()
@@ -66,13 +67,34 @@ while Wand == False:
         print("2. Go back")
         choice2 = input()
         if choice2 == "1": 
-            type_text("You call out down the empty halls and get no response")
-            time.sleep(1)
-            print()
-            type_text("You walk back into the cell")
-            print()
-            time.sleep(1)
-            continue
+            if Callout_counter <50:
+                type_text("You call out down the empty halls and get no response")
+                time.sleep(1)
+                print()
+                type_text("You walk back into the cell")
+                print()
+                time.sleep(1)
+                Callout_counter=Callout_counter+1
+                continue
+            elif Callout_counter >=50:
+                type_text("You call out down the empty halls and hear a louad, deep growl off in the distance")
+                time.sleep(1)
+                print()
+                type_text("You see a large, gruesome creature emerge from the shadows and slowly make its way towards you")
+                time.sleep(1)
+                print()
+                type_text("The creature is massive, with sharp claws and teeth, and it looks very angry")
+                time.sleep(1)
+                print()
+                type_text("As it gets closer, you realize that it is heading straight for you")
+                time.sleep(1)
+                print()
+                type_text("You feel a sharp pain as the creature attacks you, and your vision goes dark")
+                time.sleep(1)
+                print()
+                type_text("Game Over")
+                print()
+                sys.exit()
         else: 
             type_text("You walk back into the cell")
             print()
