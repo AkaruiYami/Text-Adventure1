@@ -4,24 +4,26 @@
 # See LICENSE-AGPl-3.0 and LICENSE-CC-BY-NC-SA-4.0 in the repository root for full license texts.
 import time
 import sys
-question = "What do you say?"
-choice = "What do you do?"
-def type_text(text, delay=0.05):
+question = "What do you say?" #Generic question prompt
+choice = "What do you do?" #Generic choice prompt
+def type_text(text, delay=0.05): #Function to simulate typing effect
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()  
         time.sleep(delay)
-Razor=0
-Wand=False
-door1=False
-potion1=False
-timewasted=False
-scars=False
-flowers_collected=False
-water_collected=False
-infinite_razor_counter=0
-powerupgraded=0
-Callout_counter=0
+ArinsRise=False #Whether the player has helped Arin rise to power
+Razor=0 #How many razors the player has
+Wand=False #Whether the player has picked up the wand
+door1=False #Whether the player has opened the door
+potion1=False #Whether the player has taken the potion beaker
+timewasted=False #Whether the player wasted time trying to pick the flowers by hand
+scars=False #Whether the player has scars
+flowers_collected=False #Whether the player has collected the moonshade flowers
+water_collected=False #Whether the player has collected the water from the river
+infinite_razor_counter=0 #Once it hits 20, it will start giving the player infinite razors
+powerupgraded=0 #How much the player's power has been upgraded
+Callout_counter=0 #How many times the player has called out through the bars
+DayNight_cycle=0 #0 = Day, 1 = Night
 type_text("Welcome to 'Warden's Sanctum', a text adventure game")
 print()
 type_text("When you are given a choice, type the number associated with the option you would like to choose")
@@ -446,6 +448,10 @@ while True:
             type_text("You gather a small bouquet of the flowers")
             print()
             time.sleep(1)
+            type_text("As you collect the final flower, your razor snaps in half from the strain")
+            print()
+            time.sleep(1)
+            Razor=Razor-1
             flowers_collected=True
             break
         else:
@@ -591,6 +597,8 @@ while True:
             type_text("He begins to mix the ingredients together in a large beaker, chanting softly under his breath")
             print()
             time.sleep(1)
+            flowers_collected=False
+            water_collected=False
             type_text("As he works, you feel a strange energy building in the room")
             print()
             time.sleep(1)
@@ -936,8 +944,7 @@ while True:
         type_text("You nod and stand up, ready to continue your journey")
         print()
         time.sleep(1)
-        type_text("To be continued...")
-        sys.exit()
+        break
     elif choice_tree == "2":
         type_text("You decide to stay outside the tree")
         print()
@@ -983,3 +990,325 @@ while True:
         sys.exit()
     else:
         continue
+type_text("You and the traveler set off towards the town")
+print()
+time.sleep(1)
+type_text("As you walk, the traveller turns to talk to you")
+print()
+time.sleep(1)
+type_text('"So, what brings you out here?"')
+print()
+time.sleep(1)
+type_text("You tell them about your time in the warden's anctum and the trials you faced")
+print()
+time.sleep(1)
+type_text('"I have had my fair share of troubles too."')
+print()
+time.sleep(1)
+type_text('"But it seems we both made it through."')
+print()
+time.sleep(1)
+type_text("After a while, you see the town in the distance")
+print()
+time.sleep(1)
+type_text("You and the traveler make your way into the town")
+print()
+time.sleep(1)
+type_text('"I am going to head to the inn to rest. Would you like to join me?"')
+print()
+time.sleep(1)
+while True:
+    type_text(question)
+    print()
+    time.sleep(1)
+    print("1. Yes")
+    time.sleep(1)
+    print("2. No")
+    choice14=input()
+    if choice14 == "1":
+        type_text("You and the traveler head to the inn together")
+        print()
+        time.sleep(1)
+        type_text("You share a room and sleep the night")
+        print()
+        time.sleep(1)
+        DayNight_cycle=0
+        break
+    elif choice14 == "2":
+        type_text("You decide against it and walk into the town alone")
+        print()
+        time.sleep(1)
+        DayNight_cycle=1
+        while True:
+            type_text(choice)
+            print()
+            time.sleep(1)
+            print("1. Look around the town")
+            time.sleep(1)
+            print("2. Talk to the locals")
+            time.sleep(1)
+            print("3. Go to the inn")
+            choice15=input()
+            if choice15 == "1":
+                type_text("You walk around the town, taking in the sights and sounds")
+                print()
+                time.sleep(1)
+                type_text("You see a market square filled with vendors selling all sorts of goods")
+                print()
+                time.sleep(1)
+                type_text("You also see a tavern where people are drinking and socializing")
+                print()
+                time.sleep(1)
+                continue
+            elif choice15 == "2":
+                type_text("You approach a group of locals and strike up a conversation")
+                print()
+                time.sleep(1)
+                type_text("They tell you about the town and its history, as well as some of the local legends")
+                print()
+                time.sleep(1)
+                type_text("You learn about a hidden treasure that is said to be buried somewhere in the town")
+                print()
+                time.sleep(1)
+                type_text("They also warn you about a dangerous creature that is said to roam the outskirts of the town at night")
+                print()
+                time.sleep(1)
+                Town1nfo=True
+                continue
+            elif choice15 == "3":
+                type_text("You head to the inn")
+                print()
+                time.sleep(1)
+                type_text("You sleep the night")
+                print()
+                time.sleep(1)
+                DayNight_cycle=0
+                break
+    else:
+        continue
+type_text("You wake up the next morning, feeling refreshed and ready to continue your journey")
+print()
+time.sleep(1)  
+type_text("You step outside the inn and see the bustling town around you")
+print()
+time.sleep(1)  
+type_text("The sun is shining and the birds are singing")
+print()
+time.sleep(1)  
+type_text("You take a deep breath and prepare to face whatever challenges lie ahead")
+print()
+time.sleep(1)  
+type_text("As you stand there, taking in the sights and sounds of the town, you see a figure approaching you from the distance")
+print()
+time.sleep(1)
+type_text("As they come closer, you see that they have a long cloak and a wide-brimmed hat that obscures their face")
+print()
+time.sleep(1)
+while True:
+    type_text(choice)
+    print()
+    time.sleep(1)
+    print("1. Greet the figure")
+    time.sleep(1)
+    print("2. Ignore the figure")
+    choice16=input()
+    if choice16 == "1":
+        type_text("You greet the figure as they approach you")
+        print()
+        time.sleep(1)
+        break
+    elif choice16 == "2":
+        type_text("You decide to ignore the figure and continue on your way")
+        print()
+        time.sleep(1)
+        type_text("As you walk away, you hear the figure call out to you")
+        print()
+        time.sleep(1)
+        type_text('"Hey, wait up!"')
+        print()
+        time.sleep(1)
+        type_text("You turn around and see the figure approaching you")
+        print()
+        time.sleep(1)
+        break
+    else:
+        continue
+type_text("The figure stops in front of you and pulls back their hood, revealing a friendly face")
+print()
+time.sleep(1)
+type_text('"Greetings, I am Arin. I just came into town and was wondering if you could help me out."')
+print()
+time.sleep(1)
+type_text('"I am looking for someone to guide me to the old ruins outside of town. Would you be interested?"')
+print()
+time.sleep(1)
+while True:
+    type_text(question)
+    print()
+    time.sleep(1)
+    print("1. Yes")
+    time.sleep(1)
+    print("2. No")
+    choice17=input()
+    if choice17 == "1":
+        type_text("You agree to help Arin find the old ruins")
+        print()
+        time.sleep(1)
+        type_text('"Great! You will be greatly rewarded for your kindness."')
+        print()
+        time.sleep(1)
+        type_text("You and Arin set off towards the old ruins outside of town")
+        print()
+        time.sleep(1)
+        type_text("As you walk, Arin tells you about their quest to find a powerful artifact hidden within the ruins")
+        print()
+        time.sleep(1)
+        type_text("You navigate through the dense forest and rocky terrain, eventually reaching the entrance to the ruins")
+        print()
+        time.sleep(1)
+        type_text("You and Arin enter the ruins")
+        print()
+        time.sleep(1)
+        type_text('"I believe the artifact is located in the main chamber. Let\'s head there."')
+        print()
+        time.sleep(1)
+        type_text("You follow Arin through the winding corridors of the ruins, until you come across a large chamber filled with ancient artifacts and treasures")
+        print()
+        time.sleep(1)
+        type_text("In the center of the chamber, you see a pedestal with a glowing object resting on top of it")
+        print()
+        time.sleep(1)
+        type_text("Arin approaches the pedestal and picks up the artifact")
+        print()
+        time.sleep(1)
+        type_text('"We did it! This artifact will be invaluable to my rise to power."')
+        print()
+        time.sleep(1)
+        type_text("You watch as Arin grabs the artifact and a bright light envelops them")
+        print()
+        time.sleep(1)
+        type_text("When the light fades, you see that Arin has transformed into a powerful being, radiating with energy")
+        print()
+        time.sleep(1)
+        type_text('"Thank you for helping me achieve my destiny. I could not have done it without you."')
+        print()
+        time.sleep(1)
+        type_text('"Now I musn\'t leave any witnesses."')
+        print()
+        time.sleep(1)
+        type_text("Before you can react, Arin unleashes a powerful blast of energy that hits you square in the chest")
+        print()
+        time.sleep(1)
+        type_text("You feel yourself being lifted off the ground as the energy courses through your body")
+        print()
+        time.sleep(1)
+        type_text("Your vision goes dark as you lose consciousness")
+        print()
+        time.sleep(5)
+        ArinsRise=True
+        scars=True
+        powerupgraded=powerupgraded-1
+        if powerupgraded < 0:
+            powerupgraded=0
+        DayNight_cycle=1
+        type_text("You awaken hours later, lying on the ground in the ruins")
+        print()
+        time.sleep(1)
+        type_text("You feel weak and disoriented, but you are alive")
+        print()
+        time.sleep(1)
+        type_text("You see that your body is covered in scars from the blast of energy")
+        print()
+        time.sleep(1)
+        type_text("You slowly get to your feet and make your way out of the ruins")
+        print()
+        time.sleep(1)
+        type_text("As you exit the ruins, you see that the sun is setting in the distance")
+        print()
+        time.sleep(1)
+        type_text("You make your way back to the town, feeling grateful to be alive")
+        print()
+        time.sleep(1)
+        break
+    elif choice17 == "2":
+        type_text("You politely decline Arin's request for help")
+        print()
+        time.sleep(1)
+        type_text('"No worries, I understand. Maybe another time."')
+        print()
+        time.sleep(1)
+        type_text("Arin nods and walks away, disappearing into the crowd of people in the town square")
+        print()
+        time.sleep(1)
+        break
+    else:
+        continue
+if ArinsRise == True:
+    while True:
+        type_text(choice)
+        print()
+        time.sleep(1)
+        print("1. Go to the inn to rest")
+        time.sleep(1)
+        print("2. Explore the town")
+        choice18=input()
+        if choice18 == "1":
+            type_text("You head to the inn to rest for the night")
+            print()
+            time.sleep(1)
+            type_text("You sleep the night, feeling exhausted from your encounter with Arin")
+            print()
+            time.sleep(1)
+            DayNight_cycle=0
+            break
+        elif choice18 == "2":
+            type_text("You decide to explore the town further")
+            print()
+            time.sleep(1)
+            type_text("As you walk through the streets, you hear whispers and murmurs from the townspeople")
+            print()
+            time.sleep(1)
+            type_text("You soon realize that they are talking about Arin and their sudden rise to power")
+            print()
+            time.sleep(1)
+            type_text("Some people seem fearful, while others are in awe of Arin's newfound strength")
+            print()
+            time.sleep(1)
+            type_text("You feel a sense of unease as you realize that Arin's rise to power may have consequences for the town and its people")
+            print()
+            time.sleep(1)
+            continue
+        else:
+            continue
+else:
+    while True:
+        type_text(choice)
+        print()
+        time.sleep(1)
+        print("1. Go to the inn to rest")
+        time.sleep(1)
+        print("2. Explore the town")
+        choice19=input()
+        if choice19 == "1":
+            type_text("You head to the inn to rest for the night")
+            print()
+            time.sleep(1)
+            type_text("You sleep the night, feeling refreshed and ready to continue your journey")
+            print()
+            time.sleep(1)
+            DayNight_cycle=0
+            break
+        elif choice19 == "2":
+            type_text("You decide to explore the town further")
+            print()
+            time.sleep(1)
+            type_text("As you walk through the streets, you see people going about their daily lives, unaware of the dangers that lurk outside the town's walls")
+            print()
+            time.sleep(1)
+            type_text("You feel a sense of peace and safety within the town, but you know that you must eventually leave and face whatever challenges lie ahead")
+            print()
+            time.sleep(1)
+            continue
+        else:
+            continue
+type_text("To be continued...")
