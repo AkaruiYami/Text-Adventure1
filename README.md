@@ -42,7 +42,7 @@ Project structure
 - TextAdventure.py — main Python game file 
 - (future) assets/ — images, audio, or other resources (if/when added)
 - README.md — this file
-- LICENSE-AGPLv3 — AGPLv3 text for code
+- LICENSE-AGPL-3.0 — AGPLv3 text for code
 - LICENSE-CC-BY-NC-SA-4.0 — CC BY-NC-SA 4.0 text for assets/prose
 - LICENSES.md — mapping file explaining which parts of the repo are under which license
 - CONTRIBUTING.md - outline for contributing to the project
