@@ -21,7 +21,7 @@ Requirements
 
 How to play
 -----------
-### Locally (Windows 10+ Required)
+### Local Installation (Windows 10+ Required)
 1. Download the latest Windows release
 2. Extract the files
 3. Run the Wardens-Sanctum-version-name.exe file
