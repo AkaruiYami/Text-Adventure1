@@ -6,7 +6,7 @@ import time
 import sys
 question = "What do you say?" #Generic question prompt
 choice = "What do you do?" #Generic choice prompt
-def type_text(text, delay=0.05): #Function to simulate typing effect
+def type_text(text, delay=0.025): #Function to simulate typing effect
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()  
