@@ -4,13 +4,36 @@
 # See LICENSE-AGPl-3.0 and LICENSE-CC-BY-NC-SA-4.0 in the repository root for full license texts.
 import time
 import sys
+from typing import List
 question = "What do you say?" #Generic question prompt
 choice = "What do you do?" #Generic choice prompt
+
+YES_NO = ["Yes", "No"]
+
 def type_text(text, delay=0.025): #Function to simulate typing effect
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()  
         time.sleep(delay)
+
+
+def prompt_choices(prompt: str, choices: List[str], delay_between_choice: float = 0.5):
+    while True:
+        type_text(prompt)
+        print()
+        for i, choice in enumerate(choices, start=1):
+            time.sleep(delay_between_choice)
+            print(f"{i}. {choice}")
+        try:
+            user_input = int(input("> "))
+            if 1 <= user_input <= len(choices):
+                return user_input
+            else:
+                print(f"Invalid choice. Please enter a number between 1 and {len(choices)}")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+
 ArinsRise=False #Whether the player has helped Arin rise to power
 Razor=0 #How many razors the player has
 Wand=False #Whether the player has picked up the wand
@@ -48,26 +71,13 @@ type_text("You also see that one wall of the room is made of metal bars.")
 time.sleep(1)
 print()
 while Wand == False:
-    type_text(choice)
-    time.sleep(1)
-    print()
-    print("1. Look through the bars")
-    time.sleep(1)
-    print("2. Look at the shelf")
-    time.sleep(1)
-    print("3. Inspect the bed")
-    choice1=input()
+    choice1 = prompt_choices(choice, ["Look through the bars", "Look at the shelf", "Inspect the bed"])
+    choice1 = str(choice1)
     if choice1 == "1":
         type_text("You see many cells along the hall on the other side of the bars.")
         print()
         time.sleep(1)
-        type_text(choice)
-        time.sleep(1)
-        print()
-        print("1. Call out")
-        time.sleep(1)
-        print("2. Go back")
-        choice2 = input()
+        choice2 = str(prompt_choices(choice, ["Call out", "Go back"]))
         if choice2 == "1": 
             if Callout_counter <50:
                 type_text("You call out down the empty halls and get no response")
@@ -117,13 +127,7 @@ while Wand == False:
                 type_text("Are you happy now, Lennon?")
                 time.sleep(1)
                 print()
-                type_text(choice)
-                time.sleep(1)
-                print()
-                print("1. Pick up the razor")
-                time.sleep(1)
-                print("2. Leave it")
-                choice3=input()
+                choice3 = str(prompt_choices(choice, ["Pick up the razor", "Leave it"]))
                 if choice3 == "1":
                     time.sleep(1)
                     type_text("You pick up the razor and walk back to the middle of the cell")
@@ -140,13 +144,7 @@ while Wand == False:
             type_text("You look at the shelf and see a dull, old style razor")
             time.sleep(1)
             print()
-            type_text(choice)
-            time.sleep(1)
-            print()
-            print("1. Pick up the razor")
-            time.sleep(1)
-            print("2. Leave it")
-            choice3=input()
+            choice3 = str(prompt_choices(choice, ["Pick up the razor", "Leave it"]))
             if choice3 == "1":
                 time.sleep(1)
                 type_text("You pick up the razor and walk back to the middle of the cell")
@@ -177,13 +175,7 @@ type_text("You now see a silhouette of a door on the wall next to the bed")
 time.sleep(1)
 while door1 == False:
     print()
-    type_text(choice)
-    print()
-    time.sleep(1)
-    print("1. Inspect the silhouette")
-    time.sleep(1)
-    print("2. Inspect the stick")
-    choice4=input()
+    choice4 = str(prompt_choices(choice, ["Inspect the silhouette", "Inspect the stick"]))
     if choice4 == "2":
         type_text("You inspect the stick and see that its designs are reminiscent of those you have seen in drawings of wands in fantasy books")
         time.sleep(1)
@@ -215,14 +207,7 @@ type_text("You see that you are in a room filled with books and beakers of all s
 print()
 time.sleep(1)
 while potion1 == False:
-    type_text(choice)
-    print()
-    time.sleep(1)
-    print("1. Inspect the books")
-    time.sleep(1)
-    print("2. Inspect the beakers")
-    time.sleep(1)
-    choice5=input()
+    choice5 = str(prompt_choices(choice, ["Inspect the books", "Inspect the beakers"]))
     if choice5 == "1":
         type_text("You take a closer look at the books and see a few of interest")
         time.sleep(1)
@@ -257,13 +242,7 @@ type_text('"What are you doing in my sanctum?"')
 print()
 time.sleep(1)
 while True:
-    type_text(question)
-    time.sleep(1)
-    print()
-    print("1. I'm lost and found this place")
-    time.sleep(1)
-    print("2. I'm your new apprentice")
-    choice6=input()
+    choice6 = str(prompt_choices(question, ["I'm lost and found this place", "I'm your new apprentice"]))
     if choice6 == "1":
         type_text('"How did you find this place, then? Did you come here from the prison?')
         print()
@@ -298,12 +277,7 @@ type_text('"Get some rest, and come talk to me in the morning"')
 print()
 time.sleep(1)
 while True:
-    type_text(choice)
-    print()
-    print("1. Go to sleep")
-    print("2. Look in the dresser") 
-    print("3. Check the side table")
-    choice_room = input()
+    choice_room = str(prompt_choices(choice, ["Go to sleep", "Look in the dresser", "Check the side table"]))
     if choice_room == "1":
         type_text("You lie down on the bed and quickly fall asleep")
         break
@@ -327,11 +301,7 @@ type_text("You see that he is busy mixing a potion at a large table covered in b
 print()
 time.sleep(1)
 while True:
-    type_text(choice)
-    print()
-    print("1. Approach him")
-    print("2. Look around the room first")
-    choice_morning = input()
+    choice_morning = str(prompt_choices(choice, ["Approach him", "Look around the room first"]))
     
     if choice_morning == "1":
         type_text("You walk up to the robed figure")
@@ -356,7 +326,7 @@ while True:
     print("1. What kind of potion is it?")
     print("2. What ingredients do you need?")
     print("3. Why should I help you?")
-    choice_quest = input() 
+    choice_quest = str(prompt_choices(question, ["What kind of potion is it?", "What ingredients do you need?", "Why should I help you?"])) 
     if choice_quest == "1":
         type_text('"That is not your concern for now. Focus on the task at hand."')
         print()
@@ -386,11 +356,7 @@ type_text('"Go through there to reach the forest."')
 print()
 time.sleep(1)
 while True:
-    type_text(choice)
-    print()
-    print("1. Go through the door")
-    print("2. Ask more questions")
-    choice_leave = input()
+    choice_leave = str(prompt_choices(choice, ["Go through the door", "Ask more questions"]))
     if choice_leave == "1":
         break
     elif choice_leave == "2":
@@ -429,14 +395,7 @@ type_text("You get the feeling that you cannot pick them without using some sort
 print()
 time.sleep(1)
 while True:
-    type_text(choice)
-    print()
-    time.sleep(1)
-    print("1. Pick the flowers")
-    time.sleep(1)
-    print("2. Leave empty handed")
-    time.sleep(1)
-    choice7=input()
+    choice7 = str(prompt_choices(choice, ["Pick the flowers", "Leave empty handed"]))
     if choice7 == "1":
         if Razor == 1:
             type_text("You remember the razor you picked up earlier")
@@ -488,14 +447,7 @@ type_text("You wade into the river, thinking about how this must be the river th
 print()
 time.sleep(1)
 while True:
-    type_text(choice)
-    print()
-    time.sleep(1)
-    print("1. Collect water from the river")
-    time.sleep(1)
-    print("2. Leave the river")
-    time.sleep(1)
-    choice9=input()
+    choice9 = str(prompt_choices(choice, ["Collect water from the river", "Leave the river"]))
     if choice9 == "1":
         type_text("You wade towards the deepest part of the river you can find and scoop up some water into the vial")
         print()
@@ -505,13 +457,7 @@ while True:
             type_text("As you finish collecting the water, you hear a loud roar coming from the forest")
             print()
             time.sleep(1)
-            type_text(choice)
-            print()
-            time.sleep(1)
-            print("1. Run away")
-            time.sleep(1)
-            print("2. Stay and investigate")
-            choice8=input()
+            choice8 = str(prompt_choices(choice, ["Run away", "Stay and investigate"]))
             if choice8 == "1":
                 type_text("You see a large creature slowly emerge from the trees as you run off towards the tree you entered from")
                 print()
@@ -573,13 +519,7 @@ while True:
     else:
         continue
 while True:
-    type_text(choice)
-    print()
-    time.sleep(1)  
-    print("1. Enter the hole in the tree")
-    time.sleep(1)
-    print("2. Stay outside")
-    choice_tree=input()
+    choice_tree = str(prompt_choices(choice, ["Enter the hole in the tree", "Stay outside"]))
     if choice_tree == "1":
         if flowers_collected == True and water_collected == True:
             type_text("You walk back into the sanctum and approach the robed figure")
@@ -669,16 +609,7 @@ while True:
         print()
         time.sleep(1)
         while True:
-            type_text(choice)
-            print()
-            time.sleep(1)
-            print("1. Take the torchlit path")
-            time.sleep(1)
-            print("2. Take the dark path")
-            time.sleep(1)
-            print("3. Take the glowing plant path")
-            time.sleep(1)
-            choice10=input()
+            choice10 = str(prompt_choices(choice, ["Take the torchlit path", "Take the dark path", "Take the glowing plant path"]))            
             if choice10 == "1":
                 type_text("You walk down the path lit by torches")
                 print()
@@ -708,7 +639,7 @@ while True:
                     print("1. Help the creature")
                     time.sleep(1)
                     print("2. Ignore the creature and keep walking")
-                    choice11=input()
+                    choice11 = str(prompt_choices(choice, ["Help the creature", "Ignore the creature and keep walking"]))
                     if choice11 == "1":
                         type_text("You decide to help the creature")
                         print()
@@ -732,13 +663,7 @@ while True:
                         print()
                         time.sleep(1)
                         while True:
-                            type_text(choice)
-                            print()
-                            time.sleep(1)
-                            print("1. Run")
-                            time.sleep(1)
-                            print("2. Stand your ground")
-                            choice12=input()
+                            choice12 = str(prompt_choices(choice, ["Run", "Stand your ground"]))
                             if choice12 == "1":
                                 type_text("You run as fast as you can back through the maze")
                                 print()
@@ -849,13 +774,7 @@ while True:
                 print()
                 time.sleep(1)
                 while True:
-                    type_text(choice)
-                    print()
-                    time.sleep(1)
-                    print("1. Inspect the plant")
-                    time.sleep(1)
-                    print("2. Ignore the plant and keep walking")
-                    choice13=input()
+                    choice13 = str(prompt_choices(choice, ["Inspect the plant", "Ignore the plant and keep walking"]))
                     if choice13 == "1":
                         type_text("You walk over to the plant and inspect it closely")
                         print()
@@ -1018,13 +937,7 @@ type_text('"I am going to head to the inn to rest. Would you like to join me?"')
 print()
 time.sleep(1)
 while True:
-    type_text(question)
-    print()
-    time.sleep(1)
-    print("1. Yes")
-    time.sleep(1)
-    print("2. No")
-    choice14=input()
+    choice14 = str(prompt_choices(question, YES_NO))
     if choice14 == "1":
         type_text("You and the traveler head to the inn together")
         print()
@@ -1040,15 +953,7 @@ while True:
         time.sleep(1)
         DayNight_cycle=1
         while True:
-            type_text(choice)
-            print()
-            time.sleep(1)
-            print("1. Look around the town")
-            time.sleep(1)
-            print("2. Talk to the locals")
-            time.sleep(1)
-            print("3. Go to the inn")
-            choice15=input()
+            choice15 = str(prompt_choices(choice, ["Look around the town", "Talk to the locals", "Go to the inn"]))
             if choice15 == "1":
                 type_text("You walk around the town, taking in the sights and sounds")
                 print()
@@ -1105,13 +1010,7 @@ type_text("As they come closer, you see that they have a long cloak and a wide-b
 print()
 time.sleep(1)
 while True:
-    type_text(choice)
-    print()
-    time.sleep(1)
-    print("1. Greet the figure")
-    time.sleep(1)
-    print("2. Ignore the figure")
-    choice16=input()
+    choice16 = str(prompt_choices(choice, ["Greet the figure", "Ignore the figure"]))
     if choice16 == "1":
         type_text("You greet the figure as they approach you")
         print()
@@ -1143,13 +1042,7 @@ type_text('"I am looking for someone to guide me to the old ruins outside of tow
 print()
 time.sleep(1)
 while True:
-    type_text(question)
-    print()
-    time.sleep(1)
-    print("1. Yes")
-    time.sleep(1)
-    print("2. No")
-    choice17=input()
+    choice17 = str(prompt_choices(question, YES_NO))
     if choice17 == "1":
         type_text("You agree to help Arin find the old ruins")
         print()
@@ -1245,13 +1138,7 @@ while True:
         continue
 if ArinsRise == True:
     while True:
-        type_text(choice)
-        print()
-        time.sleep(1)
-        print("1. Go to the inn to rest")
-        time.sleep(1)
-        print("2. Explore the town")
-        choice18=input()
+        choice18 = str(prompt_choices(choice, ["Go to the inn to rest", "Explore the town"]))
         if choice18 == "1":
             type_text("You head to the inn to rest for the night")
             print()
@@ -1282,13 +1169,7 @@ if ArinsRise == True:
             continue
 else:
     while True:
-        type_text(choice)
-        print()
-        time.sleep(1)
-        print("1. Go to the inn to rest")
-        time.sleep(1)
-        print("2. Explore the town")
-        choice19=input()
+        choice19 = str(prompt_choices(choice, ["Go to the inn to rest", "Explore the town"]))
         if choice19 == "1":
             type_text("You head to the inn to rest for the night")
             print()
@@ -1324,13 +1205,7 @@ type_text('"I hear that you have some experience dealing with dangerous situatio
 print()
 time.sleep(1)
 while True:
-    type_text(question)
-    print()
-    time.sleep(1)
-    print("1. Yes")
-    time.sleep(1)
-    print("2. No")
-    choice20=input()
+    choice20 = str(prompt_choices(question, YES_NO))
     if choice20 == "1":
         type_text("You agree to help the innkeeper investigate the disappearances")
         print()
